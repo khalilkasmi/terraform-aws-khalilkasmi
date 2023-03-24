@@ -1,17 +1,7 @@
-# terraform-aws-khalilkasmi
+This repository contains Terraform code to provision an AWS VPC.
 
-This is a Terraform module that creates an AWS VPC with two subnets (one public and one private) and an Internet Gateway.
+The code creates a VPC with an Internet Gateway and a public subnet. It then creates a NAT Gateway and an EIP to allow outbound internet traffic from the private subnet.
 
-It also creates a NAT Gateway in the public subnet and a route table that routes all Internet traffic to the NAT Gateway.
+There is also a security group which allows SSH access from anywhere.
 
-The module takes two input variables:
-
-- `cidr_block`: The CIDR block for the VPC.
-
-- `instance_type`: The type of EC2 instance to launch in the private subnet.
-
-## Usage
-
-To use this module, you need to specify the following input variables:
-
-- `cid
+This code was written by Khalil Kasmi.

@@ -1,21 +1,21 @@
-This repository contains Terraform code to provision an AWS environment for khalilkasmi.
+# terraform-aws-khalilkasmi
 
-The code will create the following resources:
+A Terraform module to create an AWS VPC in the region of your choice.
 
-- An S3 bucket for storing terraform state
+## Usage
 
-- An IAM user with permissions to read/write to the S3 bucket
+To use this module, add the following to your Terraform configuration:
 
-- A VPC with 2 public subnets
+```hcl
+module "vpc" {
+  source = "khalilkasmi/vpc/aws"
 
-- An internet gateway attached to the VPC
+  region = "us-east-1"
+}
+```
 
-- A route table with a route to the internet gateway for the public subnets
+## Inputs
 
-- 2 NAT gateways (1 per public subnet)
-
-- 2 private subnets
-
-- A route table with a route to the NAT gateway for the private subnets
-
-- A security group for the NAT gateway
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:-----:|
+| region | The AWS region to create the VPC in | string | - | yes |
